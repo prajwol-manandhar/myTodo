@@ -2,8 +2,6 @@ from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from analysis import analysis
-
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///todo.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -30,14 +28,14 @@ def hello_world():
         db.session.commit()
 
     # todo = Todo(title='Invest in Stock Market', description='Start from IPOs')
-    
+
     allTodo = Todo.query.all()
     return render_template('index.html', allTodo=allTodo)
 
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
-    if request.method=='POST':
+    if request.method == 'POST':
         title = request.form['title']
         description = request.form['description']
         todo = Todo.query.filter_by(id=id).first()
@@ -57,11 +55,6 @@ def delete(id):
     db.session.delete(todo)
     db.session.commit()
     return redirect('/')
-
-
-@app.route('/products')
-def products():
-    return analysis()
 
 
 if __name__ == '__main__':
