@@ -1,0 +1,35 @@
+SETTING UP THE ENVIRONMENT
+1. Install virtual environment
+2. Create virtual environment: virtualenv env
+3. Activate virtual environment: source env/bin/activate
+4. Install flask: pip install flask
+
+GET STARTED
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
+CREATE NEW ENDPOINT 
+@app.route('/products')
+def products():
+    return 'These are the products of our website.'
+
+CREATE static AND templates folders
+- Files in static folder are rendered as it is.
+
+CREATE index.html
+
+- import render_template
+
+AFTER WRITING THE DATABASE COMMANDS OF COLLECTION
+WRITE python IN TERMINAL TO CREATE DATABASE
+- from app import db
+- db.create_all()
+
+
+AFTER CREATING THE SITE, INSTALL pip install gunicorn
+- helps website serve our application in multiple threads.
+- DO pip freeze reqirements.txt
