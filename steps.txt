@@ -33,3 +33,11 @@ WRITE python IN TERMINAL TO CREATE DATABASE
 AFTER CREATING THE SITE, INSTALL pip install gunicorn
 - helps website serve our application in multiple threads.
 - DO pip freeze reqirements.txt
+
+HEROKU
+- heroku login
+- git init
+- git add .
+- git commit -m "Comment"
+- heroku create <name>
+- git push heroku master
